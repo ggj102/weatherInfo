@@ -6,9 +6,14 @@ export const gLon = lonVal =>({type:GLOBAL_LON, lonVal});
 export const gLat = latVal =>({type:GLOBAL_LAT, latVal});
 
 
+// const initialState = {
+//     gLonState: -122.08,
+//     gLatState: 37.39,
+// }
+
 const initialState = {
-    gLon: -122.08,
-    gLat: 37.39
+    gLonState: '',
+    gLatState: ''
 }
 
 export default function GlobalData(state = initialState, action){
@@ -17,12 +22,12 @@ export default function GlobalData(state = initialState, action){
         case GLOBAL_LON:
             return{
                 ...state,
-                gLon: action.lonVal
+                gLonState: action.lonVal
             }
         case GLOBAL_LAT:
             return{
                 ...state,
-                gLat: action.latVal
+                gLatState: action.latVal
             }
         default:
             return state;

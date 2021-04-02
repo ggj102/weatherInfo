@@ -1,3 +1,33 @@
+import axios from "axios";
+
+export function WeatherUrl(lat, lon)
+{
+    return axios.get("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid=9f6eff98a96bbc2d05b9f07fe183e659&exclude=minutely,hourly,alerts&units=metric");
+}
+
+export function DayChange(num,idx)
+{
+    if(idx === 0)
+    {
+        return '오늘'
+    }
+    else if(idx === 1)
+    {
+        return '내일'
+    }
+    else{
+        switch(num){
+            case 0: return '일'
+            case 1: return '월'
+            case 2: return '화'
+            case 3: return '수'
+            case 4: return '목'
+            case 5: return '금'
+            case 6: return '토'
+        }
+    }
+}
+
 export function WindDirection(data){
     if(data <= 11.25 && data > 348.75)
     {

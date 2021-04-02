@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components'
 import CurrentWeather from './components/CurrentWeather';
 import Header from './components/Header';
 import WeeklyForecast from './components/WeeklyForecast';
