@@ -122,7 +122,9 @@ function Header(props) {
                 <span>{nowArea}</span> 
                 </div>}
                 <SearchArea>
-                    <input value = {searchWord} onChange={onInputChange}/>
+                    <input
+                     placeholder = "지역을 검색하세요."
+                     value = {searchWord} onChange={onInputChange}/>
                     {focus && <SearchBox>
                         {list}
                     </SearchBox>}
