@@ -11,11 +11,6 @@ const GlobalStyle = createGlobalStyle`
         max-width: 768px;
         margin: 0 auto;
     }
-
-    @media (min-width: 769px){
-        body{
-        }
-    }
 `
 const store = createStore(rootReducer)
 

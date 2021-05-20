@@ -71,23 +71,21 @@ function WeeklyForecast(props){
 
     const {lon, lat} = props;
     const [weatherData,setweatherData] = useState([]);
-    let arr = [];
   
     useEffect(()=>{
         if(lon && lat)
         {
             WeatherUrl(lat,lon).then((response)=>{
-                for(let i = 0; i < response.data.daily.length; i++)
-                {
-                    arr.push({
-                        dt: new Date(response.data.daily[i].dt*1000),
-                        min: Math.round(response.data.daily[i].temp.min),
-                        max: Math.round(response.data.daily[i].temp.max),
-                        pop: Math.round(response.data.daily[i].pop*100),
-                        icon: response.data.daily[i].weather[0].icon
-                    });
-                }
-                setweatherData(arr);
+                const dataMap = response.data.daily.map((val)=>{
+                    return {
+                        dt: new Date(val.dt*1000),
+                        min: Math.round(val.temp.min),
+                        max: Math.round(val.temp.max),
+                        pop: Math.round(val.pop*100),
+                        icon: val.weather[0].icon
+                    }
+                })
+                setweatherData(dataMap);
             })
         }
     },[lon,lat])

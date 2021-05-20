@@ -86,9 +86,7 @@ function Header(props) {
             setFocus(true);
             const fil = json.filter((val)=>{
                 return val.search.indexOf(target) !== -1 || val.name.indexOf(target) !== -1;
-            }).filter((val,idx)=>{
-                return idx < 20;
-            })
+            }).slice(0,10);
             setSearchList(fil);
         }else 
         {
