@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React,{useEffect, useState} from 'react';
 import styled from 'styled-components'
 import {connect} from 'react-redux';
@@ -50,7 +49,6 @@ function CurrentWeather(props){
                     windSpeed: Math.round(response.data.current.wind_speed),
                     windDir: WindDirection(response.data.current.wind_deg)
                 });
-                console.log(response.data.current.weather[0].icon);
             })
             
         }

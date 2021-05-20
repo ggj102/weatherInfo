@@ -128,8 +128,6 @@ function Header(props) {
                     {focus && <SearchBox>
                         {list}
                     </SearchBox>}
-                    {/* <button onClick={onSearch}>검색</button> */}
-                    {/* <button>현재위치</button> */}
                 </SearchArea>
             </Search>
         </div>

@@ -1,15 +1,8 @@
 const GLOBAL_LON = 'GLOBAL_LON';
 const GLOBAL_LAT = 'GLOBAL_LAT';
 
-
 export const gLon = lonVal =>({type:GLOBAL_LON, lonVal});
 export const gLat = latVal =>({type:GLOBAL_LAT, latVal});
-
-
-// const initialState = {
-//     gLonState: -122.08,
-//     gLatState: 37.39,
-// }
 
 const initialState = {
     gLonState: '',

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import {connect} from 'react-redux';
@@ -89,7 +88,6 @@ function WeeklyForecast(props){
                     });
                 }
                 setweatherData(arr);
-                console.log(response.data.daily[0].weather[0].icon);
             })
         }
     },[lon,lat])
