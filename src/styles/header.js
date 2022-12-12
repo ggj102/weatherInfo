@@ -18,6 +18,7 @@ const Content = styled.div`
       font-size: 20px;
       border-radius: 4px;
       border: none;
+      padding: 10px;
     }
 
     button {
@@ -38,7 +39,7 @@ const Content = styled.div`
     }
     .area {
       float: left;
-      line-height: 26px;
+      line-height: 43px;
     }
     .area span {
       font-weight: bold;
@@ -52,9 +53,8 @@ const Content = styled.div`
   }
 
   .autocompleteSearch {
-    width: 247px;
+    width: 100%;
     max-height: 200px;
-    border: 1px solid #000;
     background-color: #fff;
     position: absolute;
     overflow: auto;
