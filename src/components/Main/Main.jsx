@@ -7,6 +7,7 @@ export default function Main() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [weatherData, setWeatherData] = useState({ current: {}, daily: [] });
+  const [currentLocation, setCurrentLocation] = useState("");
 
   const initData = () => {
     weatherUrl(latitude, longitude).then((res) => {
@@ -17,8 +18,8 @@ export default function Main() {
         temp: Math.round(current.temp),
         feelsLike: Math.round(current.feels_like),
         humidity: Math.round(current.humidity),
-        main: current.main,
-        icon: current.icon,
+        main: current.weather[0].main,
+        icon: current.weather[0].icon,
         windSpeed: Math.round(current.wind_speed),
         windDir: windDirection(current.wind_deg),
       };
@@ -41,14 +42,24 @@ export default function Main() {
     });
   };
 
+  const setLocation = (latitude, longitude, location) => {
+    setLatitude(latitude);
+    setLongitude(longitude);
+    setCurrentLocation(location);
+  };
+
   useEffect(() => {
     if (latitude && longitude) initData();
   }, [latitude, longitude]);
 
   return (
-    <>
-      <Header setLatitude={setLatitude} setLongitude={setLongitude} />
-      <WeatherInfo data={weatherData} />
-    </>
+    <div>
+      <Header currentLocation={currentLocation} setLocation={setLocation} />
+      <WeatherInfo
+        isSearch={latitude && longitude}
+        data={weatherData}
+        setLocation={setLocation}
+      />
+    </div>
   );
 }
