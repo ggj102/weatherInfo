@@ -1,16 +1,6 @@
-import React from 'react';
-import CurrentWeather from './components/CurrentWeather';
-import Header from './components/Header';
-import WeeklyForecast from './components/WeeklyForecast';
+import React from "react";
+import Main from "./components/Main";
 
-function App(){
-    return(
-        <div>
-            <Header/>
-            <CurrentWeather/>
-            <WeeklyForecast/>
-        </div>
-    )
+export default function App() {
+  return <Main />;
 }
-
-export default App;
