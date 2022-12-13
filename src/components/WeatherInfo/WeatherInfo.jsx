@@ -15,12 +15,12 @@ export default function WeatherInfo({ isSearch, data, setLocation }) {
           const geocoder = new window.kakao.maps.services.Geocoder();
           const coord = new window.kakao.maps.LatLng(latitude, longitude);
 
-          geocoder.coord2Address(
+          geocoder.coord2RegionCode(
             coord.getLng(),
             coord.getLat(),
             (res, status) => {
               if (status === window.kakao.maps.services.Status.OK) {
-                const addrName = res[0].address.address_name;
+                const addrName = res[1].address_name;
                 setLocation(latitude, longitude, addrName);
               }
             }
