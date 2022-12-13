@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { weatherUrl, windDirection } from "../../util/utils_test";
+import { weatherUrl, windDirection } from "../../util/utils";
 import Header from "../Header";
 import WeatherInfo from "../WeatherInfo";
 

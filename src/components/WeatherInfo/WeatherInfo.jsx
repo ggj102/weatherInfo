@@ -1,13 +1,35 @@
 import React from "react";
-import { dayChange } from "../../util/utils_test";
+import { dayChange } from "../../util/utils";
 import WeatherInfoContent from "../../styles/weatherinfo";
 
 export default function WeatherInfo({ isSearch, data, setLocation }) {
   const { current, daily } = data;
 
   const onClickCurrentLocation = () => {
-    // setLocation(5, 5, "테스트");
-    alert("준비 중인 기능입니다.");
+    const windowNav = window.navigator;
+
+    if (windowNav.geolocation) {
+      windowNav.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          const geocoder = new window.kakao.maps.services.Geocoder();
+          const coord = new window.kakao.maps.LatLng(latitude, longitude);
+
+          geocoder.coord2Address(
+            coord.getLng(),
+            coord.getLat(),
+            (res, status) => {
+              if (status === window.kakao.maps.services.Status.OK) {
+                const addrName = res[0].address.address_name;
+                setLocation(latitude, longitude, addrName);
+              }
+            }
+          );
+        },
+        (err) => console.log(err, "error"),
+        { enableHighAccuracy: false, maximumAge: 0, timeout: Infinity }
+      );
+    }
   };
 
   return (
