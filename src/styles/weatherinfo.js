@@ -2,6 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Content = styled.div`
+  background-color: #dddddd;
+  padding: 10px 30px;
+
+  .currentLocationBtn {
+    padding: 3px 6px;
+  }
+
   .currnetWeatherInfo {
     border-bottom: 2px solid #000;
     text-align: center;
@@ -9,7 +16,7 @@ const Content = styled.div`
     .title {
       font-size: 20px;
       font-weight: bold;
-      margin: 10px 0 0 10px;
+      padding: 10px 0 0 10px;
     }
 
     .mainTemp {
@@ -42,6 +49,9 @@ const Content = styled.div`
       text-align: center;
       list-style: none;
       padding: 0;
+      margin: 0;
+
+      padding: 10px 0;
 
       li {
         width: 300px;
@@ -59,9 +69,8 @@ const Content = styled.div`
       }
 
       .day_area {
-        width: 35px;
+        width: 100%;
         margin-top: 8px;
-        padding-right: 5px;
         font-size: 14px;
       }
       .day {
@@ -72,6 +81,7 @@ const Content = styled.div`
       }
       .temp {
         display: flex;
+        padding-right: 6px;
       }
       .text {
         width: 180px;
@@ -88,6 +98,16 @@ const Content = styled.div`
       .max {
         color: #d75d63;
       }
+    }
+  }
+
+  .noSearch {
+    padding: 30px 0;
+    text-align: center;
+    p {
+      margin: 0;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
   }
 `;

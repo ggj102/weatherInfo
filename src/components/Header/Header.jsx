@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import JsonData from "../../../public/AreaData.json";
 import HeaderContent from "../../styles/header.js";
 
-function Header({ setLongitude, setLatitude }) {
+function Header({ currentLocation, setLocation }) {
   const [isSearchFocus, setIsSearchFocus] = useState(false);
   const [locationData, setLocationData] = useState([]);
   const [searchList, setSearchList] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [currentLocation, setCurrentLocation] = useState("");
 
   const init = () => {
     const locationMap = JsonData.map((val) => {
@@ -38,10 +37,8 @@ function Header({ setLongitude, setLatitude }) {
   };
 
   const onClickSelect = (val) => {
-    setCurrentLocation(val.name);
     setSearchValue("");
-    setLongitude(val.lon);
-    setLatitude(val.lat);
+    setLocation(val.lat, val.lon, val.name);
     setIsSearchFocus(false);
   };
 
@@ -53,13 +50,13 @@ function Header({ setLongitude, setLatitude }) {
       <div className="search">
         {currentLocation && (
           <div className="area">
-            현재 위치:
+            위치:
             <span>{currentLocation}</span>
           </div>
         )}
         <div className="searchInput">
           <input
-            placeholder="지역을 검색하세요."
+            placeholder="지역을 검색해 주세요."
             value={searchValue}
             onChange={onChangeSearchValue}
           />
